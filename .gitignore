@@ -1,0 +1,7 @@
+node_modules/
+.env
+credentials/
+firebase-service-account.json
+vertex-ai-credentials.json
+*.log
+.DS_Store
