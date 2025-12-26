@@ -15,7 +15,19 @@ const vertexAI = require('./vertex-ai-service');
 
 // Initialisation Firebase Admin
 try {
-  const serviceAccount = require('./firebase-service-account.json');
+  let serviceAccount;
+  
+  // En production (Render), décoder depuis variable d'environnement
+  if (process.env.FIREBASE_CREDENTIALS) {
+    const decoded = Buffer.from(process.env.FIREBASE_CREDENTIALS, 'base64').toString();
+    serviceAccount = JSON.parse(decoded);
+    console.log('✅ Firebase credentials chargées depuis env var');
+  } else {
+    // En local, lire le fichier
+    serviceAccount = require('./firebase-service-account.json');
+    console.log('✅ Firebase credentials chargées depuis fichier');
+  }
+  
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
   });
