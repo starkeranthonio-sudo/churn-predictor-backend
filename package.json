@@ -1,24 +1,20 @@
 {
-  "name": "backend",
+  "name": "churn-predictor-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend for Churn Predictor",
+  "main": "websocket-server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node websocket-server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@google-cloud/vertexai": "^1.10.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "googleapis": "^169.0.0",
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
     "kafkajs": "^2.2.4",
-    "nodemailer": "^7.0.12",
-    "openai": "^6.15.0",
-    "ws": "^8.18.3"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "firebase-admin": "^12.0.0",
+    "cookie-parser": "^1.4.6",
+    "googleapis": "^126.0.1",
+    "@google-cloud/vertexai": "^1.0.0"
   }
 }
